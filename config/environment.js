@@ -44,7 +44,7 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
-    ENV.rootURL = '/tracerbench.github.io/'
+    // ENV.rootURL = '/tracerbench.github.io/'
   }
 
   return ENV;

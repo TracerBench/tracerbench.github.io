@@ -1,28 +1,16 @@
 import EmberRouter from '@ember/routing/router';
-import config from './config/environment';
 import {
   schedule
 } from '@ember/runloop';
 
-import markersRenderEnd from './markers-render-end';
-
-const Router = EmberRouter.extend({
-  location: config.locationType,
-  rootURL: config.rootURL,
-  init() {
-    this._super(...arguments);
-    performance.mark("initRouting");
-
-    this.on('willTransition', function () {
-      performance.mark('willTransition');
-    });
-
+class Router extends EmberRouter {
+  constructor() {
+    super(...arguments);
     this.on('routeDidChange', () => {
-      performance.mark('routeDidChange');
-      schedule("afterRender", markersRenderEnd);
+      schedule('afterRender', renderEnd);
     });
   }
-});
+}
 
 Router.map(function () {
   this.route('index', {
@@ -31,3 +19,23 @@ Router.map(function () {
 });
 
 export default Router;
+
+function renderEnd() {
+  performance.mark('renderEnd');
+  requestAnimationFrame(function () {
+    performance.mark('beforePaint');
+    requestAnimationFrame(function () {
+      performance.mark('afterPaint');
+      performance.measure('document', 'navigationStart', 'domLoading');
+      performance.measure('afterRender', 'renderEnd', 'beforePaint');
+      performance.measure('paint', 'beforePaint', 'afterPaint');
+      if (location.search === '?tracing') {
+        requestAnimationFrame(function () {
+          setTimeout(function () {
+            document.location.href = 'about:blank';
+          }, 0);
+        });
+      }
+    });
+  });
+}

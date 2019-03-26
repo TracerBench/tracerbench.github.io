@@ -4,24 +4,22 @@ import {
   schedule
 } from '@ember/runloop';
 
+import markersRenderEnd from './markers-render-end';
+
 const Router = EmberRouter.extend({
   location: config.locationType,
   rootURL: config.rootURL,
   init() {
     this._super(...arguments);
+    performance.mark("initRouting");
 
-    this.on('routeDidChange', transition => {
-      schedule("afterRender", () => {
-        requestAnimationFrame(function () {
-          if (location.search === "?tracing") {
-            requestAnimationFrame(function () {
-              setTimeout(function () {
-                document.location.href = "about:blank";
-              }, 0);
-            });
-          }
-        });
-      });
+    this.on('willTransition', function () {
+      performance.mark('willTransition');
+    });
+
+    this.on('routeDidChange', () => {
+      performance.mark('routeDidChange');
+      schedule("afterRender", markersRenderEnd);
     });
   }
 });

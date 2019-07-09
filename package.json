@@ -15,6 +15,7 @@
     "lint:js": "eslint .",
     "start": "ember serve",
     "test": "ember test",
+    "deploy": "ember build --environment production && ember github-pages:commit --message \"chore: deploy to master from commit $(git rev-parse HEAD)\" --branch=\"master\"",
     "tb:compare": "ember build --environment=production && ./scripts/tb.js"
   },
   "devDependencies": {

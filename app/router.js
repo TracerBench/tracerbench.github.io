@@ -3,39 +3,32 @@ import {
   schedule
 } from '@ember/runloop';
 
-class Router extends EmberRouter {
+export default class Router extends EmberRouter {
   constructor() {
     super(...arguments);
     this.on('routeDidChange', () => {
-      schedule('afterRender', renderEnd);
+      schedule('afterRender', this, renderEnd);
     });
   }
 }
 
-Router.map(function () {
-  this.route('index', {
-    path: '/'
-  });
-});
-
-export default Router;
-
 function renderEnd() {
-  performance.mark('renderEnd');
-  requestAnimationFrame(function () {
-    performance.mark('beforePaint');
-    requestAnimationFrame(function () {
-      performance.mark('afterPaint');
-      performance.measure('document', 'navigationStart', 'domLoading');
-      performance.measure('afterRender', 'renderEnd', 'beforePaint');
-      performance.measure('paint', 'beforePaint', 'afterPaint');
-      if (location.search === '?tracing') {
-        requestAnimationFrame(function () {
-          setTimeout(function () {
-            document.location.href = 'about:blank';
-          }, 0);
+  if (location.search === '?tracing') {
+    const observer = new PerformanceObserver(list => {
+      const navEntries = list.getEntriesByType("navigation");
+      if (navEntries.length > 0) {
+        navEntries.forEach((entry) => {
+          if (entry.domComplete) {
+            requestIdleCallback(() => {
+              document.location.href = "about:blank"
+            });
+          }
         });
       }
     });
-  });
+    // eslint-disable-next-line ember/no-observers
+    observer.observe({
+      entryTypes: ["navigation"]
+    });
+  }
 }

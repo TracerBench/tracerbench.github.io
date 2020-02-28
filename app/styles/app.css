@@ -17,16 +17,28 @@ main {
 }
 
 h1 {
-  font-size: 2.6em;
+  font-size: 1.7em;
+  text-align: left;
+
+}
+
+h3 {
+  font-size: 1.4em;
+  text-align: left;
 }
 
 p {
   font-size: 1.2em;
   line-height: 1.5em;
+  text-align: left;
 }
 
 hgroup a img {
   max-width: 400px;
+}
+
+li {
+  display: inline-block;
 }
 
 footer {

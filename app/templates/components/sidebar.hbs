@@ -1,0 +1,32 @@
+<nav>
+  <ul>
+    {{#each this.sidebarData as |parent| }}
+
+    <li class="parent">
+      <h4>
+        {{parent.title}}
+      </h4>
+      <ul>
+        {{#each parent.children as |child|}}
+        <li class="child">
+          <LinkTo @route="{{child.route}}" anchor="{{child.href}}">
+            {{child.title}}
+          </LinkTo>
+          {{#if child.children}}
+          <ul>
+            {{#each child.children as |grandchild|}}
+            <li class="grandchild">
+              <LinkTo @route="{{grandchild.route}}" anchor="{{grandchild.href}}">
+                {{grandchild.title}}
+              </LinkTo>
+            </li>
+            {{/each}}
+          </ul>
+          {{/if}}
+        </li>
+        {{/each}}
+      </ul>
+    </li>
+    {{/each}}
+  </ul>
+</nav>

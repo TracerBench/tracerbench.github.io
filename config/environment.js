@@ -47,5 +47,11 @@ module.exports = function (environment) {
     // ENV.rootURL = '/tracerbench.github.io/'
   }
 
+  ENV['ember-cli-markdown-resolver'] = {
+    folders: {
+      'docs': 'markdown'
+    }
+  }
+
   return ENV;
 };

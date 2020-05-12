@@ -1,0 +1,111 @@
+// left sidebar
+.sidebar {
+  border-bottom: 0;
+  border-right: 1px solid $greylight;
+  padding: 2.5rem 1.75rem;
+  background-color: $white;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  max-width: 260px;
+  width: 100%;
+
+  a {
+    font-weight: normal;
+    color: $brandDarkblue;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  nav {
+    padding-bottom: 50px;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    overflow: hidden;
+    letter-spacing: 1px;
+  }
+
+  li {
+    position: relative;
+    margin: 0.8rem 0.1rem;
+    display: block;
+  }
+
+  h4 {
+    font-size: 1rem;
+    font-weight: 900;
+    margin: 0;
+    color: $brandDarkblue;
+  }
+
+  .child {
+    & > ul {
+      margin: 0.5rem 0 0 1rem;
+      max-height: 0;
+      opacity: 0;
+      transform: translate(0, 50%);
+      color: $brandDarkblue;
+      font-size: 1rem;
+      padding: 0 0 0 0.75rem;
+      display: none;
+      li {
+        margin-bottom: 0.5rem;
+        position: relative;
+        &:first-child {
+          margin-top: 0;
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    & > a {
+      color: $greydark;
+      font-weight: 800;
+      font-size: 1rem;
+      margin: 1rem 0.2rem 0.5rem;
+      padding: 0.45rem 0.75rem 0.4rem;
+      border-radius: 0.25rem;
+      &:hover {
+        text-decoration: none;
+        background: $brandGreyalpha;
+      }
+      &.active {
+        color: $brandBrightblue;
+      }
+    }
+
+    & > a.active {
+      &:hover {
+        background: none;
+      }
+      & ~ ul {
+        display: block;
+        z-index: 2;
+        opacity: 1;
+        transform: translate(0, 0);
+        max-height: inherit;
+        border-left: 1px solid $greylight;
+        li {
+          &:hover {
+            transform: translate(0.2rem, 0);
+            transition: 200ms all;
+
+            a {
+              color: $almostblack;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}

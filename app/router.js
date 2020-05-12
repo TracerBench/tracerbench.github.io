@@ -1,9 +1,11 @@
 import EmberRouter from '@ember/routing/router';
-import {
-  schedule
-} from '@ember/runloop';
+import { schedule } from '@ember/runloop';
+
+import config from './config/environment';
 
 export default class Router extends EmberRouter {
+  location = config.locationType;
+  rootURL = config.rootURL;
   constructor() {
     super(...arguments);
     this.on('routeDidChange', () => {
@@ -14,13 +16,13 @@ export default class Router extends EmberRouter {
 
 function renderEnd() {
   if (location.search === '?tracing') {
-    const observer = new PerformanceObserver(list => {
-      const navEntries = list.getEntriesByType("navigation");
+    const observer = new PerformanceObserver((list) => {
+      const navEntries = list.getEntriesByType('navigation');
       if (navEntries.length > 0) {
         navEntries.forEach((entry) => {
           if (entry.domComplete) {
             requestIdleCallback(() => {
-              document.location.href = "about:blank"
+              document.location.href = 'about:blank';
             });
           }
         });
@@ -28,7 +30,32 @@ function renderEnd() {
     });
     // eslint-disable-next-line ember/no-observers
     observer.observe({
-      entryTypes: ["navigation"]
+      entryTypes: ['navigation']
     });
   }
 }
+
+Router.map(function () {
+  this.route('docs', function () {
+    this.route('guide', function () {
+      this.route('introduction', { path: '/' });
+      this.route('getting-started');
+      this.route('workflows');
+      this.route('stats-primer');
+    });
+    this.route('api', function () {
+      this.route('commands', { path: '/' });
+      this.route('compare');
+      this.route('record-har');
+      this.route('profile');
+      this.route('help');
+    });
+    this.route('contributing', function () {
+      this.route('community');
+      this.route('development');
+    });
+    // this.route('advanced', function () {
+    //   this.route('serve');
+    // });
+  });
+});

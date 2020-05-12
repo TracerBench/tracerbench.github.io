@@ -1,0 +1,119 @@
+<article>
+  <h2>
+    Introduction
+  </h2>
+
+  <p>
+    Welcome to TracerBench! As it pertains to data analysis, intuition almost always leads us astray. We see patterns in
+    random data and jump to unwarranted conclusions. We need a guide. One that uses statistical rigor so that we can
+    make valid conclusions based upon the data. TracerBench aims to be that guide.
+  </p>
+  <p>
+    TracerBench is a controlled performance benchmarking tool for web applications. Providing clear, actionable and
+    usable insights into performance deltas. By extracting metrics around response, animation, idle, and load through
+    automated chrome traces and controlling that each of our samples is independent. TracerBench is able to provide low
+    variance and reproducible performance data. TracerBench results are packageable and shareable allowing for
+    replicated peer review.
+  </p>
+
+  <h2 id="features">
+    Features
+  </h2>
+  <hr />
+  <p>
+    TracerBench goes to great lengths to improve the quality of the trace and the result. These are the major building
+    blocks designed to accomplish this:
+    <ul class="bullets">
+      <li>
+        Clear, actionable and usable insights into performance deltas, by extracting metrics around response, animation,
+        idle, and load.
+      </li>
+      <li>
+        Highly configurable, under the hood leveraging Chrome
+        <a target="_blank" rel="" href="https://github.com/ChromeDevTools/devtools-protocol/">
+          devtools-protocol.
+        </a>
+      </li>
+      <li>
+        Sample independent (the process of taking one sample should have no impact on taking the other samples)
+        instances of Chrome with an empty user data folder.
+      </li>
+      <li>
+        All cached data is cleared between each sample.
+      </li>
+      <li>
+        Samples are taken one at a time and interleaved between the control and experiment.
+      </li>
+      <li>
+        The first sample (control or experiment) is randomized to uniformly distribute noise due to server background
+        processes.
+      </li>
+      <li>
+        Statistics report leverages the Hodges-Lehmann Estimator for the estimate of the location shift and its
+        Confidence Interval Delta, which is based on the same rank-sum statistic as the Wilcoxon Rank-Sum test.
+      </li>
+    </ul>
+  </p>
+
+  <h2 id="motivation">
+    Motivation
+  </h2>
+  <hr />
+  <p>
+    There’s currently a gap in performance analysis tooling for web applications, which for example is especially true
+    for Ember Applications. Developers today struggle to quickly find and analyze performance regressions which would
+    empower them to make quick, iterative changes within their local development environment. Regressions need to be
+    automatically uncovered, propagated and reported with both regression size and actionable data that explains the
+    problem to maximize value and usefulness for the developer. The current approach for performance analysis for
+    developers is running a single trace using Chrome Developer Tools. The issue however, is a single trace varies far
+    too much to detect regressions in small changes to a web application unless the effect size is very large.
+    Additionally, most statistical tests assume sample independence which given caching like Chrome's v8 caching this is
+    quite difficult to meet. TracerBench has been greatly inspired by the Chromium benchmark tool
+    <a target="_blank" rel=""
+      href="https://github.com/catapult-project/catapult/blob/master/telemetry/docs/run_benchmarks_locally.md">
+      Telemetry.
+    </a>
+  </p>
+  <h2 id="how-does-it-compare">
+    How Does It Compare?
+  </h2>
+  <hr />
+  <p>
+    When comparing TracerBench to the most popular performance tool, Chrome Developer Tools <a target="_blank" rel=""
+      href="https://github.com/GoogleChrome/lighthouse">Lighthouse</a>. The primary difference is TracerBench is focused
+    on getting a low variance for a metric across many samples versus
+    getting a hard to replicate “Lighthouse performance report”. Lighthouse is essentially a black-box, with developers
+    unable to customize performance parameters in-depth and lacking proper statistical rigor. TracerBench on the other
+    hand, can be highly instrumented, provides statistical rigor and adequate sampling of data with sample independence.
+    Additionally, TracerBench instrumentation has minimal impact on the overhead of the application; as such TracerBench
+    instrumentation can be "checked-in" and left in your application without worry of negative performance impacts.
+  </p>
+  <h2 id="user-stories">
+    User Stories
+  </h2>
+  <hr>
+  <p>
+    <a target="_blank" rel="" href="https://github.com/pzuraq">Chris Garrett</a> leveraged TracerBench in his <a
+      target="_blank" href="https://emberjs.com/">Ember.js</a> work on including native accessor
+    functions
+    in "classic" JavaScript classes.
+  </p>
+  <blockquote>
+    TracerBench
+    <a target="_blank" href="https://github.com/TracerBench/tracerbench/raw/master/docs/native-accessor-fn.pdf">
+      showed
+    </a>
+    us with some confidence that the changes we were making to add a new feature in Ember wouldn't cause significant
+    regressions in existing applications. We knew that the new feature would require some amount of work on the critical
+    path for class instantiation, and thus for application boot, so having a way to measure the overall impact was
+    invaluable. Without this kind of test, microbenchmarks would only have given us context as to how much more or less
+    this piece of work was in isolation, and we wouldn't have been able to know if cumulatively running the new code
+    would have a measurable impact on end users."
+    <cite>
+      <a target="_blank" rel="" href="https://github.com/pzuraq">
+        Chris Garrett
+      </a>
+      (Ember.js Core Team Member)
+    </cite>
+  </blockquote>
+</article>

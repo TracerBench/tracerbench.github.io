@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="118px" height="50px" viewBox="0 0 118 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Group@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#69EBEB" stop-opacity="0.9" offset="0%"></stop>
+            <stop stop-color="#38D2D3" stop-opacity="0.9" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#E5F9A3" stop-opacity="0.9" offset="0%"></stop>
+            <stop stop-color="#C7F16A" stop-opacity="0.9" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <line x1="64.5" y1="9" x2="64.5" y2="5" id="Line" stroke="#38D2D3" stroke-linecap="square"></line>
+            <line x1="64.5" y1="32" x2="64.5" y2="28" id="Line" stroke="#38D2D3" stroke-linecap="square"></line>
+            <line x1="25" y1="10.5" x2="88" y2="10.5" id="Line-2" stroke-opacity="0.3" stroke="#EDEDED" stroke-width="2" stroke-linecap="square"></line>
+            <line x1="25" y1="24.5" x2="88" y2="24.5" id="Line-2" stroke-opacity="0.3" stroke="#EDEDED" stroke-width="2" stroke-linecap="square"></line>
+            <line x1="25" y1="17.5" x2="88" y2="17.5" id="Line-2" stroke-opacity="0.3" stroke="#EDEDED" stroke-width="2" stroke-linecap="square"></line>
+            <rect id="Rectangle" stroke="#38D2D3" stroke-width="2" fill-opacity="0.8" fill="url(#linearGradient-1)" transform="translate(65.000000, 18.500000) rotate(-90.000000) translate(-65.000000, -18.500000) " x="56.5" y="14.5" width="17" height="8"></rect>
+            <rect id="Rectangle" stroke="#C7F16A" stroke-width="2" fill-opacity="0.8" fill="url(#linearGradient-2)" transform="translate(48.000000, 14.500000) rotate(-90.000000) translate(-48.000000, -14.500000) " x="39.5" y="10.5" width="17" height="8"></rect>
+            <line x1="47.5" y1="5" x2="47.5" y2="1" id="Line" stroke="#C7F16A" stroke-linecap="square"></line>
+            <line x1="47.5" y1="28" x2="47.5" y2="24" id="Line" stroke="#C7F16A" stroke-linecap="square"></line>
+            <line x1="48" y1="17.5" x2="48" y2="11.5" id="Line" stroke="#C7F16A" stroke-width="3" stroke-linecap="square" transform="translate(48.000000, 14.500000) rotate(270.000000) translate(-48.000000, -14.500000) "></line>
+            <line x1="65" y1="21.5" x2="65" y2="15.5" id="Line" stroke="#38D2D3" stroke-width="3" stroke-linecap="square" transform="translate(65.000000, 18.500000) rotate(270.000000) translate(-65.000000, -18.500000) "></line>
+            <circle id="Oval" fill-opacity="0.75" fill="#0A2D46" transform="translate(44.000000, 1.000000) rotate(-90.000000) translate(-44.000000, -1.000000) " cx="44" cy="1" r="1"></circle>
+            <circle id="Oval" fill-opacity="0.75" fill="#0A2D46" transform="translate(51.000000, 3.000000) rotate(-90.000000) translate(-51.000000, -3.000000) " cx="51" cy="3" r="1"></circle>
+            <circle id="Oval" fill-opacity="0.75" fill="#0A2D46" transform="translate(69.000000, 5.000000) rotate(-90.000000) translate(-69.000000, -5.000000) " cx="69" cy="5" r="1"></circle>
+            <circle id="Oval" fill-opacity="0.75" fill="#0A2D46" transform="translate(66.000000, 14.000000) rotate(-90.000000) translate(-66.000000, -14.000000) " cx="66" cy="14" r="1"></circle>
+            <circle id="Oval" fill-opacity="0.75" fill="#0A2D46" transform="translate(64.000000, 18.000000) rotate(-90.000000) translate(-64.000000, -18.000000) " cx="64" cy="18" r="1"></circle>
+            <circle id="Oval" fill-opacity="0.75" fill="#0A2D46" transform="translate(66.000000, 24.000000) rotate(-90.000000) translate(-66.000000, -24.000000) " cx="66" cy="24" r="1"></circle>
+            <circle id="Oval" fill-opacity="0.75" fill="#0A2D46" transform="translate(69.000000, 32.000000) rotate(-90.000000) translate(-69.000000, -32.000000) " cx="69" cy="32" r="1"></circle>
+            <circle id="Oval" fill-opacity="0.75" fill="#0A2D46" transform="translate(44.000000, 28.000000) rotate(-90.000000) translate(-44.000000, -28.000000) " cx="44" cy="28" r="1"></circle>
+            <circle id="Oval" fill-opacity="0.75" fill="#0A2D46" transform="translate(47.000000, 17.000000) rotate(-90.000000) translate(-47.000000, -17.000000) " cx="47" cy="17" r="1"></circle>
+            <circle id="Oval" fill-opacity="0.75" fill="#0A2D46" transform="translate(49.000000, 20.000000) rotate(-90.000000) translate(-49.000000, -20.000000) " cx="49" cy="20" r="1"></circle>
+            <circle id="Oval" fill-opacity="0.75" fill="#0A2D46" transform="translate(50.000000, 14.000000) rotate(-90.000000) translate(-50.000000, -14.000000) " cx="50" cy="14" r="1"></circle>
+            <circle id="Oval" fill-opacity="0.75" fill="#0A2D46" transform="translate(47.000000, 10.000000) rotate(-90.000000) translate(-47.000000, -10.000000) " cx="47" cy="10" r="1"></circle>
+            <text id="TRACERBENCH" font-family="Futura-Bold, Futura" font-size="16" font-weight="bold" fill="#000000">
+                <tspan x="0" y="49">TRACER</tspan>
+                <tspan x="63.408" y="49" font-family="Futura-Medium, Futura" font-weight="400">BENCH</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

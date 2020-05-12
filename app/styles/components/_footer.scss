@@ -1,0 +1,24 @@
+// footer
+footer {
+  padding: 30px 0;
+  background: $brandBrightblue;
+  position: relative;
+
+  a {
+    text-align: center;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: #000;
+  }
+
+  img {
+    vertical-align: baseline;
+    margin: 0 0 -3px 0;
+  }
+
+  .li-logo {
+    shape-rendering: geometricprecision;
+    width: 71px;
+    height: 18px;
+  }
+}

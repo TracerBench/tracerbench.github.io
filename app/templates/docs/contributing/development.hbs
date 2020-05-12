@@ -1,0 +1,85 @@
+<article>
+  <h2 id="development">
+    Development
+  </h2>
+  <hr />
+  <p>
+    You should be comfortable with Node.js, TypeScript and Rust and additionally with working within mono-repos.
+    The TracerBench GitHub Org is comprised of three primary mono-repos that make up the bulk of the implementation.
+    <br />
+    Which are:
+    <ul class="bullets">
+      <li>
+        <a target="_blank" href="https://github.com/TracerBench/tracerbench/tree/master/packages">tracerbench</a>
+        <ul>
+          <li>
+            cli
+          </li>
+          <li>
+            har
+          </li>
+          <li>
+            har-remix
+          </li>
+          <li>
+            stats
+          </li>
+          <li>
+            tracerbench (core)
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a target="_blank" href="https://github.com/TracerBench/chrome-debugging-client">chrome-debugging-client</a>
+      </li>
+      <li>
+        <a target="_blank" href="https://github.com/TracerBench/tracerbench-serve">tracerbench-serve</a>
+      </li>
+    </ul>
+  </p>
+  <h2 id="debugging">
+    Debugging
+  </h2>
+  <hr />
+  <p>
+    When debugging the tracerbench CLI it's especially helpful to leverage `--inspect-brk` prepended to a CLI command,
+    eg.
+    <pre><code>NODE_OPTIONS= --inspect-brk node bin/run compare</code></pre>
+  </p>
+  <h2 id="tests">
+    Tests
+  </h2>
+  <hr />
+  <p>
+    To run the tests in the
+    <a target="_blank" href="https://github.com/TracerBench/tracerbench">
+      tracerbench
+    </a>
+    mono-repo, run the following:
+  </p>
+  <pre><code>git clone https://github.com/TracerBench/tracerbench.git<br/>...<br/>cd tracerbench && yarn && yarn test</code></pre>
+  <p>
+    To run the tests in the
+    <a target="_blank" href="https://github.com/TracerBench/chrome-debugging-client">
+      chrome-debugging-client
+    </a>
+    mono-repo, run the following:
+  </p>
+  <pre><code>git clone https://github.com/TracerBench/chrome-debugging-client.git<br/>...<br/>cd chrome-debugging-client && yarn && yarn test</code></pre>
+  <p>
+    To run the tests in the
+    <a target="_blank" href="https://github.com/TracerBench/tracerbench-serve">
+      tracerbench-serve
+    </a>
+    mono-repo, run the following:
+  </p>
+  <pre><code><span class="comment"># as of this writing, tracerbench-serve requires the latest rust beta</span><br/>rustup toolchain install beta</code></pre>
+  <pre><code>git clone https://github.com/TracerBench/tracerbench-serve.git<br/>...<br/>cd tracerbench-serve && cargo test</code></pre>
+  <h2 id="license">
+    License
+  </h2>
+  <hr />
+  <p>
+    TracerBench is licensed under a permissive BSD 2-clause license.
+  </p>
+</article>

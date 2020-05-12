@@ -1,0 +1,102 @@
+// right article
+article {
+  padding: 2.5rem;
+  width: 100%;
+  min-height: 1150px;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 2;
+  max-width: 1020px;
+  h1 {
+    margin: 0;
+  }
+
+  h2 {
+    text-align: left;
+    margin-bottom: 0.2rem;
+  }
+
+  h4 {
+    text-align: left;
+    margin: 0.5rem 0;
+  }
+
+  h1 {
+    code {
+      font-size: 1.8rem;
+      font-family: $code;
+      line-height: 1.8em;
+    }
+  }
+
+  p.cmd-desc {
+    font-size: 1rem;
+    margin-bottom: 2em;
+
+    code {
+      font-size: 1rem;
+      font-family: $code;
+    }
+  }
+
+  .markdown {
+    p {
+      line-height: 1px;
+      margin: 0;
+      padding: 0;
+    }
+
+    pre {
+      margin: 0;
+    }
+
+    em {
+      display: none;
+    }
+
+    & > pre:first-of-type {
+      padding: 0.8em 1.8em;
+      line-height: 1.4em;
+
+      & h2 {
+        border-top: 1px solid $white;
+        padding-top: 3em;
+
+        &:first-of-type {
+          border-top: none;
+          margin-top: -60px;
+          padding-top: 0;
+        }
+
+        & > code {
+          font-size: 20px;
+        }
+      }
+
+      & > code {
+        text-align: left;
+
+        * {
+          font-size: 0.85rem;
+          line-height: 1.4em;
+          font-family: $code;
+        }
+
+        div {
+          h1:first-of-type,
+          p:first-of-type,
+          ul:first-of-type {
+            display: none;
+
+            code,
+            li,
+            a {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

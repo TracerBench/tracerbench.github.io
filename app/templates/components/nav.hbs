@@ -1,0 +1,21 @@
+<header>
+  <div>
+    <nav>
+      <LinkTo @route="index" class="nav-logo">
+        <img src="/assets/images/tb-logo-tiny.png" alt="tracerbench">
+      </LinkTo>
+      <ul>
+        {{#each this.navData as |link| }}
+        <li>
+          <LinkTo @route="{{link.route}}" class="nav-{{link.cssClass}}">
+            {{link.title}}
+          </LinkTo>
+        </li>
+        {{/each}}
+        <li>
+          <a href="https://github.com/TracerBench/tracerbench" target="_blank" rel="noreferrer noopener">GitHub</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

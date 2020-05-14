@@ -1,0 +1,164 @@
+<article>
+  <h2>
+    Understanding TracerBench Results
+  </h2>
+  <p>The TracerBench `compare` command produces statistical reports in multiple variants:</p>
+  <ul class="bullets">
+    <li>`stdout` stat summary report</li>
+    <li>PDF/HTML box-plot report</li>
+    <li>JSON stat summary report</li>
+  </ul>
+  <p>All results below are coming from the following command with flags. The fixture data viewable on the <a
+      target="_blank"
+      href="https://github.com/TracerBench/tracerbench/tree/master/packages/cli/test/fixtures">TracerBench CLI GitHub
+      Repo</a>. Additionally the experiment is a build with an intentional regression via setTimeout.</p>
+  <pre><code><span class="comment"># controlURL = file:///tracerbench/packages/cli/test/fixtures/release/index.html</span><span class="comment"># experimentURL = file:///tracerbench/packages/cli/test/fixtures/regression/index.html</span>...<br/>tracerbench compare --controlURL --experimentURL --fidelity 10 --report</code></pre>
+  <h2 id="stdout">
+    TracerBench Compare `stdout`
+  </h2>
+  <hr />
+  <pre><code>┌───────────────────────────────────────────────────────────────────────┐
+│ <span class="blue">Initial Render : duration</span>                                             │
+├────────────────────────────────────────┬──────────────────────────────┤
+│                                        │ <span class="limeGreen">Control</span>: 10                  │
+│ Sample Counts:                         ├──────────────────────────────┤
+│                                        │ <span class="brightBlue">Experiment</span>: 10               │
+├────────────────────────────────────────┴──────────────────────────────┤
+│                                                                       │
+├────────────────────────────────────────┬──────────────────────────────┤
+│                                        │ MIN: 57ms                    │
+│                                        ├──────────────────────────────┤
+│                                        │ MAX: 163ms                   │
+│                                        ├──────────────────────────────┤
+│                                        │ 10th: 57ms                   │
+│                                        ├──────────────────────────────┤
+│ <span class="limeGreen">Control</span> Seven Figure Summary:          │ 25th: 59ms                   │
+│                                        ├──────────────────────────────┤
+│                                        │ 50th: 64ms                   │
+│                                        ├──────────────────────────────┤
+│                                        │ 75th: 66ms                   │
+│                                        ├──────────────────────────────┤
+│                                        │ 90th: 83ms                   │
+├────────────────────────────────────────┴──────────────────────────────┤
+│                                                                       │
+├────────────────────────────────────────┬──────────────────────────────┤
+│                                        │ MIN: 1131ms                  │
+│                                        ├──────────────────────────────┤
+│                                        │ MAX: 1185ms                  │
+│                                        ├──────────────────────────────┤
+│                                        │ 10th: 1133ms                 │
+│                                        ├──────────────────────────────┤
+│ <span class="brightBlue">Experiment</span> Seven Figure Summary:       │ 25th: 1134ms                 │
+│                                        ├──────────────────────────────┤
+│                                        │ 50th: 1140ms                 │
+│                                        ├──────────────────────────────┤
+│                                        │ 75th: 1156ms                 │
+│                                        ├──────────────────────────────┤
+│                                        │ 90th: 1184ms                 │
+├────────────────────────────────────────┴──────────────────────────────┤
+│                                                                       │
+├────────────────────────────────────────┬──────────────────────────────┤
+│ Hodges–Lehmann estimated delta:        │ <span class="red">1077ms</span>                       │
+├────────────────────────────────────────┴──────────────────────────────┤
+│                                                                       │
+├────────────────────────────────────────┬──────────────────────────────┤
+│ 95% confident the delta is between:    │ 1068ms to 1097ms             │
+├────────────────────────────────────────┴──────────────────────────────┤
+│                                                                       │
+├────────────────────────────────────────┬──────────────────────────────┤
+│ Is Significant:                        │ true                         │
+├────────────────────────────────────────┴──────────────────────────────┤
+│                                                                       │
+├────────────────────────────────────────┬──────────────────────────────┤
+│ Control Sparkline                      │ █▁▁▁▁▁▁▁▁▁▁▁                 │
+├────────────────────────────────────────┼──────────────────────────────┤
+│ Experiment Sparkline                   │ ▁▁▁▁▁▁▁▁▁▁▁█                 │
+└────────────────────────────────────────┴──────────────────────────────┘
+
+
+┌───────────────────────────────────────────────────────────────────────┐
+│ <span class="blue">Sub Phase of Duration : domComplete</span>                                   │
+├────────────────────────────────────────┬──────────────────────────────┤
+│                                        │ <span class="limeGreen">Control</span>: 10                  │
+│ Sample Counts:                         ├──────────────────────────────┤
+│                                        │ <span class="brightBlue">Experiment</span>:: 10               │
+├────────────────────────────────────────┴──────────────────────────────┤
+│                                                                       │
+├────────────────────────────────────────┬──────────────────────────────┤
+│                                        │ MIN: 57ms                    │
+│                                        ├──────────────────────────────┤
+│                                        │ MAX: 163ms                   │
+│                                        ├──────────────────────────────┤
+│                                        │ 10th: 57ms                   │
+│                                        ├──────────────────────────────┤
+│ <span class="limeGreen">Control</span> Seven Figure Summary:          │ 25th: 59ms                   │
+│                                        ├──────────────────────────────┤
+│                                        │ 50th: 64ms                   │
+│                                        ├──────────────────────────────┤
+│                                        │ 75th: 66ms                   │
+│                                        ├──────────────────────────────┤
+│                                        │ 90th: 83ms                   │
+├────────────────────────────────────────┴──────────────────────────────┤
+│                                                                       │
+├────────────────────────────────────────┬──────────────────────────────┤
+│                                        │ MIN: 1131ms                  │
+│                                        ├──────────────────────────────┤
+│                                        │ MAX: 1185ms                  │
+│                                        ├──────────────────────────────┤
+│                                        │ 10th: 1133ms                 │
+│                                        ├──────────────────────────────┤
+│ <span class="brightBlue">Experiment</span> Seven Figure Summary:       │ 25th: 1134ms                 │
+│                                        ├──────────────────────────────┤
+│                                        │ 50th: 1140ms                 │
+│                                        ├──────────────────────────────┤
+│                                        │ 75th: 1156ms                 │
+│                                        ├──────────────────────────────┤
+│                                        │ 90th: 1184ms                 │
+├────────────────────────────────────────┴──────────────────────────────┤
+│                                                                       │
+├────────────────────────────────────────┬──────────────────────────────┤
+│ Hodges–Lehmann estimated delta:        │ <span class="red">1077ms</span>                       │
+├────────────────────────────────────────┴──────────────────────────────┤
+│                                                                       │
+├────────────────────────────────────────┬──────────────────────────────┤
+│ 95% confident the delta is between:    │ 1068ms to 1097ms             │
+├────────────────────────────────────────┴──────────────────────────────┤
+│                                                                       │
+├────────────────────────────────────────┬──────────────────────────────┤
+│ Is Significant:                        │ true                         │
+├────────────────────────────────────────┴──────────────────────────────┤
+│                                                                       │
+├────────────────────────────────────────┬──────────────────────────────┤
+│ Control Sparkline                      │ █▁▁▁▁▁▁▁▁▁▁▁                 │
+├────────────────────────────────────────┼──────────────────────────────┤
+│ Experiment Sparkline                   │ ▁▁▁▁▁▁▁▁▁▁▁█                 │
+└────────────────────────────────────────┴──────────────────────────────┘
+
+<em class="red">      !! ALERT      </em><span class="red"> Regression found exceeding the set regression threshold of 100 ms</span>
+
+<em class="blue">      Benchmark Results Summary      </em>
+
+<span class="red">Red</span> color means the experiment was a regression.
+<span class="green">Green</span> color means the experiment was an improvement.
+
+<span class="white">duration</span> phase estimated difference <span class="red">+1077ms [1068ms to 1097ms]</span>
+<span class="white">domComplete</span> phase estimated difference <span class="red">+1077ms [1068ms to 1097ms]</span></code></pre>
+
+  <h2 id="pdf-html">
+    TracerBench Compare PDF/HTML Box-Plots
+  </h2>
+  <hr />
+  <p>
+    <strong>Understanding The Box-Plot Results</strong>
+  </p>
+  <img style="margin: 0 auto" width="600px" alt="box-plot" src="/assets/images/box-plot.png" />
+
+  <iframe src="/assets/html/box-plot-results.html"></iframe>
+
+  <h2 id="json">
+    TracerBench Compare JSON
+  </h2>
+  <hr />
+  <p></p>
+
+</article>

@@ -12,6 +12,8 @@ $black: rgba(0, 0, 0, 0);
 $greylight: #dddddd;
 $greydark: #606060;
 $shadow: rgba(0, 0, 0, 0.15);
+$red: rgb(239, 100, 107);
+
 // tracerbench branding colors
 $brandBrightblue: #38d2d3;
 $brandMediumblue: #1884e4;
@@ -91,6 +93,7 @@ code {
 
   .comment {
     color: $brandBrightblue;
+    display: block;
   }
   pre {
     border: none;
@@ -196,6 +199,11 @@ blockquote {
     margin-top: 1rem;
     display: block;
   }
+}
+
+iframe {
+  width: 962px;
+  height: 2200px;
 }
 
 a.btn {

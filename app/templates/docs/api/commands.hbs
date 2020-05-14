@@ -1,5 +1,6 @@
 <article>
-  <h1>TracerBench Commands</h1>
+  <h2>TracerBench Commands</h2>
+
   <p class="cmd-desc">This is the command reference for the TracerBench CLI.
     <br />Which has the following syntax:</p>
 
@@ -8,4 +9,87 @@
       <code>{{markdown-to-html model.content}}</code>
     </pre>
   </div>
+
+  <h2 id="tbconfig">
+    Optional Config
+  </h2>
+  <hr />
+  <p>The optional existance of a <a target="_blank"
+      href="https://github.com/TracerBench/tracerbench/blob/master/packages/cli/test/tbconfig_base.json">tbconfig.json
+    </a> file in the project root will be consumed by TracerBench and specifies
+    default command flag options. Please note this file is optional, however is strongly recommended as this drastically
+    speeds up running TracerBench tests succinctly.</p>
+
+  <h2 id="cookies">
+    Cookies
+  </h2>
+  <hr />
+  <p>The cookies.json format takes an array of cookies: <a target="_blank"
+      href="https://chromedevtools.github.io/devtools-protocol/tot/Network#type-Cookie">https://chromedevtools.github.io/devtools-protocol/tot/Network#type-Cookie
+    </a>. The required keys are name, value, domain and path.</p>
+  <pre><code>{
+  "cookies": [
+    {
+      "name": "foo",
+      "value": "COOKIE-VALUE-HERE",
+      "domain": "www.foo.com",
+      "path": "/"
+    }
+  ]
+}</code></pre>
+
+  <h2 id="har">
+    HAR File
+  </h2>
+  <hr />
+  <p>
+    HAR (HTTP Archive) is a JSON file format used by several HTTP session tools
+    to export captured network data from a web session. The format is basically a JSON object with a particular field
+    distribution. In any
+    case, please note that not all the fields are mandatory, and many times some information won't be saved to the
+    file. For more information review the <a target="_blank"
+      href="https://toolbox.googleapps.com/apps/har_analyzer/">HAR
+      Analyzer Tool</a>
+  </p>
+
+  <h2 id="trace-results">
+    Compare Command `compare.json`
+  </h2>
+  <hr />
+  <p>
+  <ul class="bullets">
+    <li><a target="_blank"
+        href="https://github.com/TracerBench/tracerbench/blob/0508e9867b8bb8624739e16f0e812211a8346cc1/packages/tracerbench/src/benchmarks/initial-render-metric.ts#L73-L106">samples:
+        IITerationSample</a></li>
+    <li><a target="_blank"
+        href="https://github.com/TracerBench/tracerbench/blob/0508e9867b8bb8624739e16f0e812211a8346cc1/packages/tracerbench/src/benchmarks/initial-render-metric.ts#L126-L141">phases:
+        IPhaseSample</a></li>
+    <li><a target="_blank"
+        href="https://github.com/TracerBench/tracerbench/blob/0508e9867b8bb8624739e16f0e812211a8346cc1/packages/tracerbench/src/benchmarks/initial-render-metric.ts#L39-L46">gc:
+        IV8GCSample</a></li>
+    <li><a target="_blank"
+        href="https://github.com/TracerBench/tracerbench/blob/0508e9867b8bb8624739e16f0e812211a8346cc1/packages/tracerbench/src/benchmarks/initial-render-metric.ts#L48-L51">blinkGC:
+        IBlinkGCSample</a></li>
+    <li><a target="_blank"
+        href="https://github.com/TracerBench/tracerbench/blob/0508e9867b8bb8624739e16f0e812211a8346cc1/packages/tracerbench/src/benchmarks/initial-render-metric.ts#L53-L71">runtimeCallStats?:
+        IRuntimeCallStats</a></li>
+  </ul>
+  </p>
+
+  <pre><code>[{
+  "meta": {
+    "browserVersion": string,
+    "cpus": string[]
+  },
+  "samples": IITerationSample[{
+    "duration": number,
+    "js": number,
+    "phases": IPhaseSample[],
+    "gc": IV8GCSample[],
+    "blinkGC": IBlinkGCSample[],
+    "runtimeCallStats": IRuntimeCallStats
+  }],
+  "set": string
+}]</code></pre>
+
 </article>

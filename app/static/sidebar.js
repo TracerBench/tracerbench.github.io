@@ -37,21 +37,88 @@ export const guide = {
       route: 'docs.guide.workflows',
       children: [
         {
+          title: 'Ambient Noise',
+          route: 'docs.guide.workflows',
+          href: '#ambient-noise'
+        },
+        {
+          title: 'CI',
+          route: 'docs.guide.workflows',
+          href: '#ci-workflow'
+        },
+        {
           title: 'CLI',
           route: 'docs.guide.workflows',
           href: '#cli-workflow'
-        },
-        {
-          title: 'Continuous Integration',
-          route: 'docs.guide.workflows',
-          href: '#ci-workflow'
         }
       ]
     },
     {
       title: 'Statistics Primer',
       route: 'docs.guide.stats-primer',
-      children: false
+      children: [
+        {
+          title: 'Population & Sample',
+          route: 'docs.guide.stats-primer',
+          href: '#pop-samp'
+        },
+        {
+          title: 'Probability Sampling',
+          route: 'docs.guide.stats-primer',
+          href: '#prob-samp'
+        },
+        {
+          title: 'Null hypothesis',
+          route: 'docs.guide.stats-primer',
+          href: '#null-h'
+        },
+        {
+          title: 'Std Deviation & Variance',
+          route: 'docs.guide.stats-primer',
+          href: '#std-dev'
+        },
+        {
+          title: 'Conf Intervals',
+          route: 'docs.guide.stats-primer',
+          href: '#conf'
+        },
+        {
+          title: 'Power',
+          route: 'docs.guide.stats-primer',
+          href: '#power'
+        },
+        {
+          title: 'Rank Sum',
+          route: 'docs.guide.stats-primer',
+          href: '#rank-sum'
+        },
+        {
+          title: 'Stat Sig',
+          route: 'docs.guide.stats-primer',
+          href: '#stat-sig'
+        }
+      ]
+    },
+    {
+      title: 'Reports',
+      route: 'docs.guide.reports',
+      children: [
+        {
+          title: 'stdout',
+          route: 'docs.guide.reports',
+          href: '#stdout'
+        },
+        {
+          title: 'PDF/HTML',
+          route: 'docs.guide.reports',
+          href: '#pdf-html'
+        },
+        {
+          title: 'JSON',
+          route: 'docs.guide.reports',
+          href: '#json'
+        }
+      ]
     }
   ]
 };
@@ -61,7 +128,29 @@ export const api = {
   children: [
     {
       title: 'Commands',
-      route: 'docs.api.commands'
+      route: 'docs.api.commands',
+      children: [
+        {
+          title: 'Optional Config',
+          route: 'docs.api.commands',
+          href: '#tbconfig'
+        },
+        {
+          title: 'Cookies',
+          route: 'docs.api.commands',
+          href: '#cookies'
+        },
+        {
+          title: 'HAR File',
+          route: 'docs.api.commands',
+          href: '#har'
+        },
+        {
+          title: 'Trace Results JSON',
+          route: 'docs.api.commands',
+          href: '#trace-results'
+        }
+      ]
     },
     {
       title: 'Compare',

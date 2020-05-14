@@ -42,6 +42,7 @@ Router.map(function () {
       this.route('getting-started');
       this.route('workflows');
       this.route('stats-primer');
+      this.route('reports');
     });
     this.route('api', function () {
       this.route('commands', { path: '/' });

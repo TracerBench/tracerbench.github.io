@@ -1,0 +1,33 @@
+em {
+  font-style: normal;
+  font-weight: bold;
+  color: white;
+  padding: 0.1rem 0;
+  &.red {
+    background-color: red;
+  }
+  &.blue {
+    background-color: $brandMediumblue;
+  }
+}
+span {
+  font-weight: bold;
+  &.red {
+    color: red;
+  }
+  &.green {
+    color: lime;
+  }
+  &.white {
+    color: white;
+  }
+  &.blue {
+    color: $brandMediumblue;
+  }
+  &.limeGreen {
+    color: $brandLimegreen;
+  }
+  &.brightBlue {
+    color: $brandBrightblue;
+  }
+}

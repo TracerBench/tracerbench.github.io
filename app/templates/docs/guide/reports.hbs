@@ -11,7 +11,7 @@
   <p>All results below are coming from the following command with flags. The fixture data viewable on the <a
       target="_blank"
       href="https://github.com/TracerBench/tracerbench/tree/master/packages/cli/test/fixtures">TracerBench CLI GitHub
-      Repo</a>. Additionally the experiment is a build with an intentional regression via setTimeout.</p>
+      Repo</a>. Additionally the experiment is a build with an intentional regression via setTimeout of 1000 ms.</p>
   <pre><code><span class="comment"># controlURL = file:///tracerbench/packages/cli/test/fixtures/release/index.html</span><span class="comment"># experimentURL = file:///tracerbench/packages/cli/test/fixtures/regression/index.html</span>...<br/>tracerbench compare --controlURL --experimentURL --fidelity 10 --report</code></pre>
   <h2 id="stdout">
     TracerBench Compare `stdout`
@@ -159,6 +159,46 @@
     TracerBench Compare JSON
   </h2>
   <hr />
-  <p></p>
+  <p>
+  <pre><code>import Compare from "tracerbench";
+
+const results = await Compare.run([
+  "--controlURL",
+  "--experimentURL",
+  "--fidelity=10",
+  "--headless",
+  "--report",
+]);
+const resultsJSON = JSON.parse(results);<br/>...<br/><span class="comment"># log resultsJSON</span>{
+  benchmarkTableData: [
+    {
+      heading: 'Initial Render',
+      phaseName: 'duration',
+      isSignificant: true,
+      estimatorDelta: '1077ms',
+      controlSampleCount: 10,
+      experimentSampleCount: 10,
+      confidenceInterval: [Array],
+      controlSevenFigureSummary: [Object],
+      experimentSevenFigureSummary: [Object]
+    }
+  ],
+  phaseTableData: [
+    {
+      heading: 'Sub Phase of Duration',
+      phaseName: 'domComplete',
+      isSignificant: true,
+      estimatorDelta: '1077ms',
+      controlSampleCount: 10,
+      experimentSampleCount: 10,
+      confidenceInterval: [Array],
+      controlSevenFigureSummary: [Object],
+      experimentSevenFigureSummary: [Object]
+    }
+  ],
+  areResultsSignificant: true,
+  isBelowRegressionThreshold: false
+}</code></pre>
+  </p>
 
 </article>

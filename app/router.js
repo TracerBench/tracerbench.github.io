@@ -1,3 +1,4 @@
+/* eslint-disable ember/no-observers */
 import EmberRouter from '@ember/routing/router';
 import { schedule } from '@ember/runloop';
 
@@ -20,7 +21,7 @@ function renderEnd() {
       const navEntries = list.getEntriesByType('navigation');
       if (navEntries.length > 0) {
         navEntries.forEach((entry) => {
-          if (entry.domComplete) {
+          if (entry.loadEventEnd) {
             requestIdleCallback(() => {
               document.location.href = 'about:blank';
             });
@@ -28,7 +29,6 @@ function renderEnd() {
         });
       }
     });
-    // eslint-disable-next-line ember/no-observers
     observer.observe({
       entryTypes: ['navigation']
     });

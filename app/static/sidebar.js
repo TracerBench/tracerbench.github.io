@@ -79,9 +79,9 @@ export const guide = {
           href: '#intro'
         },
         {
-          title: 'Compare',
+          title: 'Compare-Action',
           route: 'docs.guide.ci-workflow',
-          href: '#compare'
+          href: '#compare-action'
         }
       ]
     },

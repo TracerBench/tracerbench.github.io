@@ -1,57 +1,27 @@
 <article>
-  <h2>
-    Workflows
+  <h2 id="intro">
+    Command Line Interface Workflow
   </h2>
   <hr />
   <p>
-    TracerBench is commonly consumed two ways, via CLI and CI. The CLI allows for a developer to quickly run a
+    TracerBench is most commonly consumed two ways, via CLI and CI. The CLI allows for a developer to quickly run a
     performance benchmark locally. While leveraging TracerBench in CI, drastically aides in the flagging and prevention
-    of a performance regression within a web application over time.
-  </p>
-  <h2 id="ambient-noise">
-    Ambient Noise
-  </h2>
-  <hr />
-  <p>
-    When running a TracerBench command its exceptionally important to reduce ambient
-    noise that could negatively impact the reliability of the test results. TL;DR TracerBench goes to great lengths to
-    mitigate noise for you, however its recommended that you don't just jump into leveraging
-    TracerBench without first performing <a target="_blank"
-      href="https://github.com/TracerBench/tracerbench/blob/master/NOISE_MITIGATION.md">Mitigating Ambient Noise.</a>
-  </p>
-  <p><strong>Testing Ambient Noise:</strong> Assuming the pre-req mitigations above are complete, to test the ambient
-    noise of your environment you can run and
-    measure a few A/A tests. For example the control against the control. The results of which should all be near
-    identical with no significant result, low variance and a narrow confidence interval range.</p>
-  <h2 id="ci-workflow">
-    Continuous Integration
-  </h2>
-  <hr />
-  <p>
-    For a quick plugin solution for commit-over-commit performance analysis in CI w/GitHub Actions, leverage the <a
-      href="https://github.com/TracerBench/tracerbench-compare-action" target="_blank"
-      rel="noreferrer noopener">tracerbench-compare-action</a>. Addiitonal details and configuration provided within the
-    GitHub link. The GithubAction project provides a small wrapper that pipes the configuration into the project's main.
-    This allows for easy use in any setup (local or CI) by adding this action as a dependency.
+    of a performance regression within a web application over time.</p>
+  <p>The recommended way of leveraging TracerBench is via
+    the <a target="_blank" href="https://www.npmjs.com/package/tracerbench">CLI</a>, which has two primary workflows:
   </p>
 
-  <h2 id="cli-workflow">
-    Command Line Interface
-  </h2>
-  <hr />
-  <p>
-    The recommended way of leveraging TracerBench is via the CLI, which has two primary workflows:
-  <ol>
-    <li>
-      Comparing the performance delta between two builds, control vs experiment (most common workflow). This is
-      executed with the <LinkTo @route='docs.api.compare'><code>`tracerbench compare`</code></LinkTo> command.
-    </li>
-    <li>
-      Gaining insight into user-timings from a Chrome trace. This is executed with the
-      <LinkTo @route='docs.api.profile'><code>`tracerbench profile`</code></LinkTo> command.
-    </li>
-  </ol>
+  <h2 id="compare">Compare Workflow</h2>
+  <hr>
+  <p> Comparing the performance delta between two builds, control vs experiment (most common workflow). This is
+    executed with the <LinkTo @route='docs.api.compare'><code>`tracerbench compare`</code></LinkTo> command.
   </p>
+
+  <h2 id="profile">Profile Workflow</h2>
+  <hr>
+  <p>Gaining insight into user-timings from a single Chrome trace. This is executed with the
+    <LinkTo @route='docs.api.profile'><code>`tracerbench profile`</code></LinkTo> command.</p>
+
 </article>
 {{! 
 

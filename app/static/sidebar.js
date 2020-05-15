@@ -30,26 +30,58 @@ export const guide = {
     {
       title: 'Getting Started',
       route: 'docs.guide.getting-started',
-      children: false
-    },
-    {
-      title: 'Workflows',
-      route: 'docs.guide.workflows',
       children: [
         {
+          title: 'Installation',
+          route: 'docs.guide.getting-started',
+          href: '#install'
+        },
+        {
           title: 'Ambient Noise',
-          route: 'docs.guide.workflows',
+          route: 'docs.guide.getting-started',
           href: '#ambient-noise'
         },
         {
-          title: 'CI',
-          route: 'docs.guide.workflows',
-          href: '#ci-workflow'
+          title: 'Navigation Timing',
+          route: 'docs.guide.getting-started',
+          href: '#nav-timing'
+        }
+      ]
+    },
+    {
+      title: 'CLI Workflow',
+      route: 'docs.guide.cli-workflow',
+      children: [
+        {
+          title: 'Intro',
+          route: 'docs.guide.cli-workflow',
+          href: '#intro'
         },
         {
-          title: 'CLI',
-          route: 'docs.guide.workflows',
-          href: '#cli-workflow'
+          title: 'Compare',
+          route: 'docs.guide.cli-workflow',
+          href: '#compare'
+        },
+        {
+          title: 'Profile',
+          route: 'docs.guide.cli-workflow',
+          href: '#profile'
+        }
+      ]
+    },
+    {
+      title: 'CI Workflow',
+      route: 'docs.guide.ci-workflow',
+      children: [
+        {
+          title: 'Intro',
+          route: 'docs.guide.ci-workflow',
+          href: '#intro'
+        },
+        {
+          title: 'Compare',
+          route: 'docs.guide.ci-workflow',
+          href: '#compare'
         }
       ]
     },

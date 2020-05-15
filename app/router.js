@@ -40,7 +40,8 @@ Router.map(function () {
     this.route('guide', function () {
       this.route('introduction', { path: '/' });
       this.route('getting-started');
-      this.route('workflows');
+      this.route('cli-workflow');
+      this.route('ci-workflow');
       this.route('stats-primer');
       this.route('reports');
     });

@@ -1,5 +1,5 @@
 <article>
-  <h2>
+  <h2 id="install">
     Getting Started
   </h2>
   <hr />
@@ -23,4 +23,34 @@
   </h4>
   <pre>
 <code>$ tracerbench (-v|--version|version)<br/>tracerbench/3.0.15 darwin-x64 node-v12.16.1<br/>$ tracerbench COMMAND<br/>running command...<br/>$ tracerbench --help [COMMAND]<br/>USAGE<br />$ tracerbench COMMAND...</code></pre>
+
+  <h2 id="ambient-noise">
+    Ambient Noise
+  </h2>
+  <hr />
+  <p>
+    When running a TracerBench command its exceptionally important to reduce ambient
+    noise that could negatively impact the reliability of the test results. TL;DR TracerBench goes to great lengths to
+    mitigate noise for you, however its recommended that you don't just jump into leveraging
+    TracerBench without first performing <a target="_blank"
+      href="https://github.com/TracerBench/tracerbench/blob/master/NOISE_MITIGATION.md">Mitigating Ambient Noise.</a>
+  </p>
+  <p><strong>Testing Ambient Noise:</strong> Assuming the pre-req mitigations above are complete, to test the ambient
+    noise of your environment you can run and
+    measure a few A/A tests. For example the control against the control. The results of which should all be near
+    identical with no significant result, low variance and a narrow confidence interval range.</p>
+
+
+  <h2 id="nav-timing">Navigation Timing</h2>
+  <hr />
+
+  <p>
+    A recommended prerequisite is a basic understanding of the <a target="_blank"
+      href="https://developer.mozilla.org/en-US/docs/Web/API/Navigation_timing_API">Navigation Timing API</a> or at the
+    very least the <a target="_blank"
+      href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming">Performance Timing Interface</a>.
+    TracerBench leverages this API to measure the performance of your web application and will provide results around
+    these markers. The following timeline is handy when needing to quickly reference various markers in the linear
+    progression, from `navigationStart` to `loadEventEnd`.</p><br />
+  <img width="100%" src="/assets/images/nav-timings.png" alt="navigation-timings-timeline">
 </article>

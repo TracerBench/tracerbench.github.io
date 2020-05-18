@@ -9,7 +9,10 @@ export default class Router extends EmberRouter {
   rootURL = config.rootURL;
   constructor() {
     super(...arguments);
+    // flag to tracerbench that rendering is done
+    // and to stop the trace
     this.on('routeDidChange', () => {
+      performance.mark('didTransition');
       schedule('afterRender', this, renderEnd);
     });
   }

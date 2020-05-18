@@ -1,0 +1,7 @@
+{
+  "$schema": "https://raw.githubusercontent.com/TracerBench/tracerbench/master/packages/cli/tb-schema.json",
+  // the title of the report pdf file
+  "plotTitle": "tracerbench.com A/A test",
+  "controlURL": "https://www.tracerbench.com/",
+  "experimentURL": "https://www.tracerbench.com/"
+}

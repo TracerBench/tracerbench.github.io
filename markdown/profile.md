@@ -1,13 +1,12 @@
-`tracerbench profile`
-=====================
+# `tracerbench profile`
 
-Parses a CPU profile and aggregates time across heuristics.
+Parses a CPU profile with asset and marker timings.
 
-* [`tracerbench profile HARPATH`](#tracerbench-profile-harpath)
+- [`tracerbench profile HARPATH`](#tracerbench-profile-harpath)
 
 ## `tracerbench profile HARPATH`
 
-Parses a CPU profile and aggregates time across heuristics.
+Parses a CPU profile with asset and marker timings.
 
 ```
 USAGE
@@ -22,9 +21,6 @@ OPTIONS
 
   --cpuThrottleRate=cpuThrottleRate
       (required) [default: 2] CPU throttle multiplier
-
-  --hideUsertimings
-      Hide stdout of user-timings.
 
   --network=none|offline|dialup|slow-2g|2g|slow-edge|edge|slow-3g|dsl|3g|fast-3g|4g|cable|LTE|FIOS
       [default: none] Simulated network conditions.

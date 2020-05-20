@@ -1,9 +1,8 @@
-`tracerbench record-har`
-========================
+# `tracerbench record-har`
 
 Generates a HAR file from a URL.
 
-* [`tracerbench record-har`](#tracerbench-record-har)
+- [`tracerbench record-har`](#tracerbench-record-har)
 
 ## `tracerbench record-har`
 

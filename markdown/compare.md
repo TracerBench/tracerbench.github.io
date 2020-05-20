@@ -1,11 +1,10 @@
-`tracerbench compare`
-=====================
+# `tracerbench compare`
 
 Compare the performance delta between an experiment and control
 
-* [`tracerbench compare`](#tracerbench-compare)
-* [`tracerbench compare:analyze RESULTSFILE`](#tracerbench-compareanalyze-resultsfile)
-* [`tracerbench compare:report`](#tracerbench-comparereport)
+- [`tracerbench compare`](#tracerbench-compare)
+- [`tracerbench compare:analyze RESULTSFILE`](#tracerbench-compareanalyze-resultsfile)
+- [`tracerbench compare:report`](#tracerbench-comparereport)
 
 ## `tracerbench compare`
 
@@ -17,14 +16,14 @@ USAGE
 
 OPTIONS
   --browserArgs=browserArgs
-      (required) [default: 
+      (required) [default:
       --crash-dumps-dir=./tmp,--disable-background-timer-throttling,--disable-dev-shm-usage,--disable-cache,--disable-v8-i
       dle-tasks,--disable-breakpad,--disable-notifications,--disable-hang-monitor,--safebrowsing-disable-auto-update,--ign
-      ore-certificate-errors,--v8-cache-options=none] (Default Recommended) Additional chrome flags for the TracerBench 
+      ore-certificate-errors,--v8-cache-options=none] (Default Recommended) Additional chrome flags for the TracerBench
       render benchmark. TracerBench includes many non-configurable defaults in this category.
 
   --config=config
-      Specify an alternative directory rather than the project root for the tbconfig.json. This explicit config will 
+      Specify an alternative directory rather than the project root for the tbconfig.json. This explicit config will
       overwrite all.
 
   --controlURL=controlURL
@@ -49,7 +48,7 @@ OPTIONS
       Experiment URL to visit for compare command
 
   --fidelity=fidelity
-      (required) [default: low] Directly correlates to the number of samples per trace. eg. test,low,medium,high OR any 
+      (required) [default: low] Directly correlates to the number of samples per trace. eg. test,low,medium,high OR any
       number between 2-100
 
   --headless

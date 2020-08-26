@@ -1,6 +1,7 @@
 # Tracerbench
 *tracerbench-results*
-
+*dist-control*
+*dist-experiment*
 # Logs
 logs
 *.log

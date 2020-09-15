@@ -1,6 +1,5 @@
 /* eslint-disable ember/no-observers */
 import EmberRouter from '@ember/routing/router';
-import { schedule } from '@ember/runloop';
 
 import config from './config/environment';
 
@@ -13,27 +12,6 @@ export default class Router extends EmberRouter {
     // and to stop the trace
     this.on('routeDidChange', () => {
       performance.mark('didTransition');
-      schedule('afterRender', this, renderEnd);
-    });
-  }
-}
-
-function renderEnd() {
-  if (location.search === '?tracing') {
-    const observer = new PerformanceObserver((list) => {
-      const navEntries = list.getEntriesByType('navigation');
-      if (navEntries.length > 0) {
-        navEntries.forEach((entry) => {
-          if (entry.loadEventEnd) {
-            requestIdleCallback(() => {
-              document.location.href = 'about:blank';
-            });
-          }
-        });
-      }
-    });
-    observer.observe({
-      entryTypes: ['navigation']
     });
   }
 }

@@ -18,38 +18,13 @@
   <h4>
     Instrument your web application
   </h4>
-  <p>Currently, in order for TracerBench to know when to stop analyzing your application it needs to redirect to
-    <code>about:blank</code> after the <code>Paint</code> event following the last <code>marker</code> you care about.
-    This is done by using a <code>performance.mark</code> function call. TracerBench instrumentation is so
-    thin it can be "checked-in" and bundled in your app. Examples:
-  </p>
-  <pre><code><span class="comment">// js example</span>function renderEnd() {
-  if (location.search === '?tracing') {
-    const observer = new PerformanceObserver((list) => {
-      const navEntries = list.getEntriesByType('navigation');
-      if (navEntries.length > 0) {
-        navEntries.forEach((entry) => {
-          if (entry.loadEventEnd) {
-            requestIdleCallback(() => {
-              document.location.href = 'about:blank';
-            });
-          }
-        });
-      }
-    });
-    observer.observe({
-      entryTypes: ['navigation']
-    });
-  }
-}</code></pre>
-  <pre><code><span class="comment">// ember example<br/>// adding the following to the router</span><span class="comment">// even add custom markers with performance.mark</span>export default class Router extends EmberRouter {
+  <pre><code><span class="comment">// ember example<br/>// adding the following custom marker to the router</span>export default class Router extends EmberRouter {
   location = config.locationType;
   rootURL = config.rootURL;
   constructor() {
     super(...arguments);
     this.on('routeDidChange', () => {
       performance.mark('didTransition');
-      schedule('afterRender', this, renderEnd);
     });
   }
 }

@@ -59,7 +59,7 @@ export default class Router extends EmberRouter {
 }
 </code></pre>
   <pre><code><span class="comment">// app/index.html | ember example<br/>// adding the following performance markers<br/>// after loading jquery script</span>performance.mark("jqueryLoaded");
-  <span class="comment">// after loading vendor.js script</span>if (Ember) performance.mark("emberLoaded");
+  <span class="comment">// after loading vendor script</span>if (Ember) performance.mark("emberLoaded");
 </code></pre>
   <h4>Run Compare</h4>
   <p>As a quick basic example, try running an A/A test with <code>tracerbench compare</code> against this instrumented

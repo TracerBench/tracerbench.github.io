@@ -1,6 +1,6 @@
 /* eslint-disable ember/no-observers */
 import EmberRouter from '@ember/routing/router';
-
+import { schedule } from '@ember/runloop';
 import config from './config/environment';
 
 export default class Router extends EmberRouter {
@@ -8,10 +8,14 @@ export default class Router extends EmberRouter {
   rootURL = config.rootURL;
   constructor() {
     super(...arguments);
-    // flag to tracerbench that rendering is done
-    // and to stop the trace
+    performance.mark('startRouting');
+    this.on('willTransition', function () {
+      performance.mark('willTransition');
+    });
+
     this.on('routeDidChange', () => {
       performance.mark('didTransition');
+      schedule('afterRender', renderEnd);
     });
   }
 }
@@ -37,8 +41,24 @@ Router.map(function () {
       this.route('community');
       this.route('development');
     });
-    // this.route('advanced', function () {
-    //   this.route('serve');
-    // });
   });
 });
+
+function renderEnd() {
+  performance.mark('renderEnd');
+  requestAnimationFrame(function () {
+    performance.mark('beforePaint');
+    requestAnimationFrame(function () {
+      performance.mark('afterPaint');
+      performance.measure('document', 'navigationStart', 'domLoading');
+      performance.measure('jquery', 'domLoading', 'jqueryLoaded');
+      performance.measure('ember', 'jqueryLoaded', 'emberLoaded');
+      performance.measure('application', 'emberLoaded', 'startRouting');
+      performance.measure('routing', 'startRouting', 'willTransition');
+      performance.measure('transition', 'willTransition', 'didTransition');
+      performance.measure('render', 'didTransition', 'renderEnd');
+      performance.measure('afterRender', 'renderEnd', 'beforePaint');
+      performance.measure('paint', 'beforePaint', 'afterPaint');
+    });
+  });
+}

@@ -59,7 +59,7 @@
     "prettier": "^2.1.1",
     "qunit-dom": "^1.4.0",
     "sass": "^1.26.10",
-    "tracerbench": "^4.0.8",
+    "tracerbench": "^4.1.1",
     "har-remix": "^2.3.0"
   },
   "engines": {

@@ -1,7 +1,45 @@
 {
   "$schema": "https://raw.githubusercontent.com/TracerBench/tracerbench/master/packages/cli/tb-schema.json",
   // the title of the report pdf file
-  "plotTitle": "tracerbench.com A/A test",
+  "plotTitle": "A/A Test of https://www.tracerbench.com/",
+  "cpuThrottleRate": 2,
   "controlURL": "https://www.tracerbench.com/",
-  "experimentURL": "https://www.tracerbench.com/"
+  "experimentURL": "https://www.tracerbench.com/",
+  "url": "https://www.tracerbench.com/",
+  "regressionThreshold": "20",
+  "appName": "tracerbench",
+  "network": "cable",
+  "markers": [
+    {
+      "start": "fetchStart",
+      "label": "jquery"
+    },
+    {
+      "start": "jqueryLoaded",
+      "label": "ember"
+    },
+    {
+      "start": "emberLoaded",
+      "label": "application"
+    },
+    {
+      "start": "startRouting",
+      "label": "routing"
+    },
+    {
+      "start": "willTransition",
+      "label": "transition"
+    },
+    {
+      "start": "didTransition",
+      "label": "render"
+    },
+    {
+      "start": "renderEnd",
+      "label": "afterRender"
+    }
+  ],
+  "browserArgs": [
+    "--headless"
+  ]
 }

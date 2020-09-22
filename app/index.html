@@ -18,7 +18,13 @@
   <body>
     {{content-for "body"}}
 
+    <script>
+      performance.mark("jqueryLoaded");
+    </script>
     <script src="{{rootURL}}assets/vendor.js"></script>
+    <script>
+      if (Ember) performance.mark("emberLoaded");
+    </script>
     <script src="{{rootURL}}assets/tracerbench.js"></script>
 
     {{content-for "body-footer"}}

@@ -18,16 +18,48 @@
   <h4>
     Instrument your web application
   </h4>
-  <pre><code><span class="comment">// ember example<br/>// adding the following custom marker to the router</span>export default class Router extends EmberRouter {
+  <pre><code><span class="comment">// app/router.js | ember example<br/>// adding the following performance markers</span>import EmberRouter from '@ember/routing/router';
+import { schedule } from '@ember/runloop';
+import config from './config/environment';
+
+export default class Router extends EmberRouter {
   location = config.locationType;
   rootURL = config.rootURL;
   constructor() {
     super(...arguments);
+    performance.mark('startRouting');
+    this.on('willTransition', function () {
+      performance.mark('willTransition');
+    });
+
     this.on('routeDidChange', () => {
       performance.mark('didTransition');
+      schedule('afterRender', renderEnd);
     });
   }
 }
+
+<span class="comment">// schedule this example renderEnd function which will mark and measure your app</span>function renderEnd() {
+  performance.mark('renderEnd');
+  requestAnimationFrame(function () {
+    performance.mark('beforePaint');
+    requestAnimationFrame(function () {
+      performance.mark('afterPaint');
+      performance.measure('document', 'navigationStart', 'domLoading');
+      performance.measure('jquery', 'domLoading', 'jqueryLoaded');
+      performance.measure('ember', 'jqueryLoaded', 'emberLoaded');
+      performance.measure('application', 'emberLoaded', 'startRouting');
+      performance.measure('routing', 'startRouting', 'willTransition');
+      performance.measure('transition', 'willTransition', 'didTransition');
+      performance.measure('render', 'didTransition', 'renderEnd');
+      performance.measure('afterRender', 'renderEnd', 'beforePaint');
+      performance.measure('paint', 'beforePaint', 'afterPaint');
+    });
+  });
+}
+</code></pre>
+  <pre><code><span class="comment">// app/index.html | ember example<br/>// adding the following performance markers<br/>// after loading jquery script</span>performance.mark("jqueryLoaded");
+  <span class="comment">// after loading vendor.js script</span>if (Ember) performance.mark("emberLoaded");
 </code></pre>
   <h4>Run Compare</h4>
   <p>As a quick basic example, try running an A/A test with <code>tracerbench compare</code> against this instrumented
@@ -38,12 +70,12 @@
   <p>Remember this was a basic example, scratching the surface of what TracerBench has to offer! Be sure to
     review the API docs for <LinkTo @route="docs.api.compare"><code>tracerbench compare</code>.</LinkTo>
   </p>
-  <pre><code><span class="comment"># tracerbench/3.1.1 darwin-x64 node-v12.16.2</span>tracerbench compare --controlURL=https://www.tracerbench.com --experimentURL=https://www.tracerbench.com</code></pre>
+  <pre><code><span class="comment"># tracerbench/4.1.1 darwin-x64 node-v12.16.2</span>tracerbench compare --controlURL https://www.tracerbench.com --experimentURL https://www.tracerbench.com --markers fetchStart,jqueryLoaded,emberLoaded,startRouting,willTransition,didTransition,renderEnd --headless</code></pre>
   <h2 id="profile">Profile Workflow</h2>
   <hr>
   <p>Gaining insight into user-timings from a single Chrome trace. This is executed with the
     <LinkTo @route='docs.api.profile'><code>`tracerbench profile`</code></LinkTo> command.</p>
-  <pre><code><span class="comment"># optionally record a har before running profile</span>tracerbench record-har --url=https://www.tracerbench.com --headless && tracerbench profile ./tracerbench.har<br/>...<br/><em class="blue">    Marker Timings :: Total Duration 1483.15 ms    </em>
+  <pre><code><span class="comment"># optionally record a har before running profile</span>tracerbench record-har --url https://www.tracerbench.com --headless && tracerbench profile ./tracerbench.har<br/>...<br/><em class="blue">    Marker Timings :: Total Duration 1483.15 ms    </em>
 
 Navigation Start
 <span class="grey">■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■</span> 0 ms

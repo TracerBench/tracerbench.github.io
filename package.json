@@ -17,7 +17,7 @@
     "start": "ember serve",
     "test": "ember test",
     "deploy": "ember build --environment production && ember github-pages:commit --message \"chore: deploy to master from commit $(git rev-parse HEAD)\" --branch=\"master\"",
-    "fetch-markdown": "wget https://github.com/TracerBench/tracerbench/archive/master.zip && unzip -qq -j master.zip 'tracerbench-master/packages/cli/markdown/*' -d markdown && rm -rf master.zip"
+    "fetch-markdown": "rm -rf markdown && wget https://github.com/TracerBench/tracerbench/archive/master.zip && unzip -qq -j master.zip 'tracerbench-master/packages/cli/markdown/*' -d markdown && rm -rf master.zip && git add markdown"
   },
   "devDependencies": {
     "@ember/optional-features": "^1.3.0",
@@ -69,7 +69,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn fetch-markdown"
+      "pre-push": "yarn fetch-markdown"
     }
   }
 }

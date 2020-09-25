@@ -16,7 +16,8 @@
     "lint:hbs": "./node_modules/.bin/ember-template-lint ./app/**/*.hbs",
     "start": "ember serve",
     "test": "ember test",
-    "deploy": "ember build --environment production && ember github-pages:commit --message \"chore: deploy to master from commit $(git rev-parse HEAD)\" --branch=\"master\""
+    "deploy": "ember build --environment production && ember github-pages:commit --message \"chore: deploy to master from commit $(git rev-parse HEAD)\" --branch=\"master\"",
+    "fetch-markdown": "wget https://github.com/TracerBench/tracerbench/archive/master.zip && unzip -qq -j master.zip 'tracerbench-master/packages/cli/markdown/*' -d markdown && rm -rf master.zip"
   },
   "devDependencies": {
     "@ember/optional-features": "^1.3.0",
@@ -54,15 +55,21 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.1.4",
     "fs-extra": "^9.0.1",
+    "har-remix": "^2.3.0",
+    "husky": "^4.3.0",
     "loader.js": "^4.7.0",
     "path": "^0.12.7",
     "prettier": "^2.1.1",
     "qunit-dom": "^1.4.0",
     "sass": "^1.26.10",
-    "tracerbench": "^4.1.1",
-    "har-remix": "^2.3.0"
+    "tracerbench": "^4.1.1"
   },
   "engines": {
     "node": ">= 10"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn fetch-markdown"
+    }
   }
 }

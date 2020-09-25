@@ -1,10 +1,11 @@
-# `tracerbench compare`
+`tracerbench compare`
+=====================
 
 Compare the performance delta between an experiment and control
 
-- [`tracerbench compare`](#tracerbench-compare)
-- [`tracerbench compare:analyze RESULTSFILE`](#tracerbench-compareanalyze-resultsfile)
-- [`tracerbench compare:report`](#tracerbench-comparereport)
+* [`tracerbench compare`](#tracerbench-compare)
+* [`tracerbench compare:analyze RESULTSFILE`](#tracerbench-compareanalyze-resultsfile)
+* [`tracerbench compare:report`](#tracerbench-comparereport)
 
 ## `tracerbench compare`
 
@@ -16,14 +17,14 @@ USAGE
 
 OPTIONS
   --browserArgs=browserArgs
-      (required) [default:
+      (required) [default: 
       --crash-dumps-dir=./tmp,--disable-background-timer-throttling,--disable-dev-shm-usage,--disable-cache,--disable-v8-i
       dle-tasks,--disable-breakpad,--disable-notifications,--disable-hang-monitor,--safebrowsing-disable-auto-update,--ign
-      ore-certificate-errors,--v8-cache-options=none] (Default Recommended) Additional chrome flags for the TracerBench
+      ore-certificate-errors,--v8-cache-options=none] (Default Recommended) Additional chrome flags for the TracerBench 
       render benchmark. TracerBench includes many non-configurable defaults in this category.
 
   --config=config
-      Specify an alternative directory rather than the project root for the tbconfig.json. This explicit config will
+      Specify an alternative directory rather than the project root for the tbconfig.json. This explicit config will 
       overwrite all.
 
   --controlURL=controlURL
@@ -48,7 +49,7 @@ OPTIONS
       Experiment URL to visit for compare command
 
   --fidelity=fidelity
-      (required) [default: low] Directly correlates to the number of samples per trace. eg. test,low,medium,high OR any
+      (required) [default: low] Directly correlates to the number of samples per trace. eg. test,low,medium,high OR any 
       number between 2-100
 
   --headless
@@ -67,7 +68,7 @@ OPTIONS
       (required) [default: none] Simulated network conditions.
 
   --regressionThreshold=regressionThreshold
-      [default: 100] The upper limit the experiment can regress slower in milliseconds. eg 100
+      [default: 50] The upper limit the experiment can regress slower in milliseconds. eg 50
 
   --report
       Generate a PDF report directly after running the compare command.
@@ -75,21 +76,21 @@ OPTIONS
   --runtimeStats
       Compare command output deep-dive stats during run.
 
+  --sampleTimeout=sampleTimeout
+      [default: 30] The number of seconds to wait for a sample.
+
   --socksPorts=socksPorts
       Specify a socks proxy port as browser option for control and experiment
 
   --tbResultsFolder=tbResultsFolder
       (required) [default: ./tracerbench-results] The output folder path for all tracerbench results
-
-  --tracingLocationSearch=tracingLocationSearch
-      (required) [default: ?tracing] The document location search param.
 ```
 
-_See code: [dist/src/commands/compare/index.ts](https://github.com/TracerBench/tracerbench/tree/master/packages/cli/blob/v3.1.1/dist/src/commands/compare/index.ts)_
+_See code: [dist/src/commands/compare/index.ts](https://github.com/TracerBench/tracerbench/tree/master/packages/cli/blob/v4.2.1/dist/src/commands/compare/index.ts)_
 
 ## `tracerbench compare:analyze RESULTSFILE`
 
-Generates stdout report from the "tracerbench compare" command output
+Generates stdout report from the "tracerbench compare" command output, 'compare.json'
 
 ```
 USAGE
@@ -105,11 +106,11 @@ OPTIONS
   --isCIEnv=isCIEnv                          (required) Provides a drastically slimmed down stdout report for CI
                                              workflows. However does NOT hide analysis.
 
-  --regressionThreshold=regressionThreshold  (required) [default: 100] The upper limit the experiment can regress slower
-                                             in milliseconds. eg 100
+  --regressionThreshold=regressionThreshold  (required) [default: 50] The upper limit the experiment can regress slower
+                                             in milliseconds. eg 50
 ```
 
-_See code: [dist/src/commands/compare/analyze.ts](https://github.com/TracerBench/tracerbench/tree/master/packages/cli/blob/v3.1.1/dist/src/commands/compare/analyze.ts)_
+_See code: [dist/src/commands/compare/analyze.ts](https://github.com/TracerBench/tracerbench/tree/master/packages/cli/blob/v4.2.1/dist/src/commands/compare/analyze.ts)_
 
 ## `tracerbench compare:report`
 
@@ -123,6 +124,11 @@ OPTIONS
   --config=config                    Specify an alternative directory rather than the project root for the
                                      tbconfig.json. This explicit config will overwrite all.
 
+  --isCIEnv=isCIEnv                  Provides a drastically slimmed down stdout report for CI workflows. However does
+                                     NOT hide analysis.
+
+  --plotTitle=plotTitle              [default: TracerBench] Specify the title of the report pdf/html files.
+
   --tbResultsFolder=tbResultsFolder  (required) [default: ./tracerbench-results] The output folder path for all
                                      tracerbench results
 
@@ -130,4 +136,4 @@ ALIASES
   $ tracerbench report
 ```
 
-_See code: [dist/src/commands/compare/report.ts](https://github.com/TracerBench/tracerbench/tree/master/packages/cli/blob/v3.1.1/dist/src/commands/compare/report.ts)_
+_See code: [dist/src/commands/compare/report.ts](https://github.com/TracerBench/tracerbench/tree/master/packages/cli/blob/v4.2.1/dist/src/commands/compare/report.ts)_

@@ -59,7 +59,7 @@
     "husky": "^4.3.0",
     "loader.js": "^4.7.0",
     "path": "^0.12.7",
-    "prettier": "^2.1.1",
+    "prettier": "^2.1.2",
     "qunit-dom": "^1.4.0",
     "sass": "^1.26.10",
     "tracerbench": "^4.1.1"

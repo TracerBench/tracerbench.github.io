@@ -61,7 +61,7 @@
     "path": "^0.12.7",
     "prettier": "^2.1.1",
     "qunit-dom": "^1.4.0",
-    "sass": "^1.26.10",
+    "sass": "^1.32.8",
     "tracerbench": "^4.1.1"
   },
   "engines": {

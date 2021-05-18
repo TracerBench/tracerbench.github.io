@@ -12,7 +12,7 @@
       target="_blank"
       href="https://github.com/TracerBench/tracerbench/tree/master/packages/cli/test/fixtures">TracerBench CLI GitHub
       Repo</a>. Additionally the experiment is a build with an intentional regression via setTimeout of 1000 ms.</p>
-  <pre><code><span class="comment"># `tracerbench --version` >> tracerbench/3.1.1 darwin-x64 node-v12.16.2</span><span class="comment"># controlURL = file:///tracerbench/packages/cli/test/fixtures/release/index.html</span><span class="comment"># experimentURL = file:///tracerbench/packages/cli/test/fixtures/regression/index.html</span>...<br/>tracerbench compare --controlURL --experimentURL --fidelity 10 --report</code></pre>
+  <pre><code><span class="comment"># tracerbench/6.0.0 darwin-x64 node-v14.16.0</span>`tracerbench --version`<span class="comment"># controlURL = file:///tracerbench/packages/cli/test/fixtures/release/index.html</span><span class="comment"># experimentURL = file:///tracerbench/packages/cli/test/fixtures/regression/index.html</span>...<br/>tracerbench compare --controlURL --experimentURL --fidelity 10 --report</code></pre>
   <h2 id="stdout">
     TracerBench Compare `stdout`
   </h2>
@@ -63,6 +63,8 @@
 │                                                                       │
 ├────────────────────────────────────────┬──────────────────────────────┤
 │ 95% confident the delta is between:    │ 1068ms to 1097ms             │
+├────────────────────────────────────────┬──────────────────────────────┤
+│ P-Value:                               │ 0.6949                       │
 ├────────────────────────────────────────┴──────────────────────────────┤
 │                                                                       │
 ├────────────────────────────────────────┬──────────────────────────────┤
@@ -127,6 +129,8 @@
 ├────────────────────────────────────────┬──────────────────────────────┤
 │ Is Significant:                        │ true                         │
 ├────────────────────────────────────────┴──────────────────────────────┤
+│ P-Value:                               │ 0.8181                       │
+├────────────────────────────────────────┴──────────────────────────────┤
 │                                                                       │
 ├────────────────────────────────────────┬──────────────────────────────┤
 │ Control Sparkline                      │ █▁▁▁▁▁▁▁▁▁▁▁                 │
@@ -137,9 +141,6 @@
 <em class="red">      !! ALERT      </em><span class="red"> Regression found exceeding the set regression threshold of 100 ms</span>
 
 <em class="blue">      Benchmark Results Summary      </em>
-
-<span class="red">Red</span> color means the experiment was a regression.
-<span class="green">Green</span> color means the experiment was an improvement.
 
 <span class="white">duration</span> phase estimated difference <span class="red">+1077ms [1068ms to 1097ms]</span>
 <span class="white">domComplete</span> phase estimated difference <span class="red">+1077ms [1068ms to 1097ms]</span></code></pre>
@@ -175,12 +176,14 @@ const resultsJSON = JSON.parse(results);<br/>...<br/><span class="comment"># log
       heading: 'Initial Render',
       phaseName: 'duration',
       isSignificant: true,
+      pValue: 0.8392,
       estimatorDelta: '1077ms',
       controlSampleCount: 10,
       experimentSampleCount: 10,
       confidenceInterval: [Array],
       controlSevenFigureSummary: [Object],
-      experimentSevenFigureSummary: [Object]
+      experimentSevenFigureSummary: [Object],
+      asPercent: [Object]
     }
   ],
   phaseTableData: [
@@ -188,16 +191,19 @@ const resultsJSON = JSON.parse(results);<br/>...<br/><span class="comment"># log
       heading: 'Sub Phase of Duration',
       phaseName: 'domComplete',
       isSignificant: true,
+      pValue: 0.8392,
       estimatorDelta: '1077ms',
       controlSampleCount: 10,
       experimentSampleCount: 10,
       confidenceInterval: [Array],
       controlSevenFigureSummary: [Object],
-      experimentSevenFigureSummary: [Object]
+      experimentSevenFigureSummary: [Object],
+      asPercent: [Object]
     }
   ],
   areResultsSignificant: true,
-  isBelowRegressionThreshold: false
+  isBelowRegressionThreshold: false,
+  regressionThresholdStat: 'estimator'
 }</code></pre>
   </p>
 

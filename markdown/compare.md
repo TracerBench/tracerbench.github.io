@@ -70,6 +70,9 @@ OPTIONS
   --regressionThreshold=regressionThreshold
       [default: 50] The upper limit the experiment can regress slower in milliseconds. eg 50
 
+  --regressionThresholdStat=estimator|ci-lower|ci-upper
+      [default: estimator] The statistic which the regression threshold runs against.
+
   --report
       Generate a PDF report directly after running the compare command.
 
@@ -86,7 +89,7 @@ OPTIONS
       (required) [default: ./tracerbench-results] The output folder path for all tracerbench results
 ```
 
-_See code: [dist/src/commands/compare/index.ts](https://github.com/TracerBench/tracerbench/tree/master/packages/cli/blob/v4.2.1/dist/src/commands/compare/index.ts)_
+_See code: [dist/src/commands/compare/index.ts](https://github.com/TracerBench/tracerbench/tree/master/packages/cli/blob/v6.0.0/dist/src/commands/compare/index.ts)_
 
 ## `tracerbench compare:analyze RESULTSFILE`
 
@@ -100,17 +103,23 @@ ARGUMENTS
   RESULTSFILE  The "tracerbench compare" command json output file
 
 OPTIONS
-  --fidelity=fidelity                        (required) [default: low] Directly correlates to the number of samples per
-                                             trace. eg. test,low,medium,high OR any number between 2-100
+  --fidelity=fidelity                                    (required) [default: low] Directly correlates to the number of
+                                                         samples per trace. eg. test,low,medium,high OR any number
+                                                         between 2-100
 
-  --isCIEnv=isCIEnv                          (required) Provides a drastically slimmed down stdout report for CI
-                                             workflows. However does NOT hide analysis.
+  --isCIEnv=isCIEnv                                      (required) Provides a drastically slimmed down stdout report
+                                                         for CI workflows. However does NOT hide analysis.
 
-  --regressionThreshold=regressionThreshold  (required) [default: 50] The upper limit the experiment can regress slower
-                                             in milliseconds. eg 50
+  --jsonReport                                           Include a JSON file from the stdout report
+
+  --regressionThreshold=regressionThreshold              (required) [default: 50] The upper limit the experiment can
+                                                         regress slower in milliseconds. eg 50
+
+  --regressionThresholdStat=estimator|ci-lower|ci-upper  [default: estimator] The statistic which the regression
+                                                         threshold runs against.
 ```
 
-_See code: [dist/src/commands/compare/analyze.ts](https://github.com/TracerBench/tracerbench/tree/master/packages/cli/blob/v4.2.1/dist/src/commands/compare/analyze.ts)_
+_See code: [dist/src/commands/compare/analyze.ts](https://github.com/TracerBench/tracerbench/tree/master/packages/cli/blob/v6.0.0/dist/src/commands/compare/analyze.ts)_
 
 ## `tracerbench compare:report`
 
@@ -136,4 +145,4 @@ ALIASES
   $ tracerbench report
 ```
 
-_See code: [dist/src/commands/compare/report.ts](https://github.com/TracerBench/tracerbench/tree/master/packages/cli/blob/v4.2.1/dist/src/commands/compare/report.ts)_
+_See code: [dist/src/commands/compare/report.ts](https://github.com/TracerBench/tracerbench/tree/master/packages/cli/blob/v6.0.0/dist/src/commands/compare/report.ts)_

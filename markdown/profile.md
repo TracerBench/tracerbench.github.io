@@ -1,13 +1,13 @@
 `tracerbench profile`
 =====================
 
-Parses a CPU profile with asset and marker timings.
+Parses a CPU profile with asset and marker timings
 
 * [`tracerbench profile HARPATH`](#tracerbench-profile-harpath)
 
 ## `tracerbench profile HARPATH`
 
-Parses a CPU profile with asset and marker timings.
+Parses a CPU profile with asset and marker timings
 
 ```
 USAGE
@@ -36,4 +36,4 @@ ALIASES
   $ tracerbench trace
 ```
 
-_See code: [dist/src/commands/profile.ts](https://github.com/TracerBench/tracerbench/tree/master/packages/cli/blob/v4.2.1/dist/src/commands/profile.ts)_
+_See code: [dist/src/commands/profile.ts](https://github.com/TracerBench/tracerbench/tree/master/packages/cli/blob/v5.3.7/dist/src/commands/profile.ts)_

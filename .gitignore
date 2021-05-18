@@ -3,6 +3,7 @@
 *dist-control*
 *dist-experiment*
 # Logs
+dist
 logs
 *.log
 npm-debug.log*

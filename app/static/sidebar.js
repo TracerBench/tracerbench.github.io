@@ -61,11 +61,6 @@ export const guide = {
           title: 'Compare',
           route: 'docs.guide.cli-workflow',
           href: '#compare'
-        },
-        {
-          title: 'Profile',
-          route: 'docs.guide.cli-workflow',
-          href: '#profile'
         }
       ]
     },
@@ -189,28 +184,12 @@ export const api = {
       route: 'docs.api.compare'
     },
     {
-      title: 'Profile',
-      route: 'docs.api.profile'
-    },
-    {
       title: 'Record-HAR',
       route: 'docs.api.record-har'
     },
     {
       title: 'Help',
       route: 'docs.api.help'
-    }
-  ]
-};
-
-export const advanced = {
-  title: 'Advanced',
-  children: [
-    {
-      title: 'Commands',
-      route: 'advanced',
-      href: '#commands',
-      children: [{ title: 'serve', route: 'docs.advanced.serve', href: '#serve' }]
     }
   ]
 };

@@ -55,7 +55,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.1.4",
     "fs-extra": "^9.0.1",
-    "har-remix": "^2.3.0",
+    "har-remix": "^6.0.0",
     "husky": "^4.3.0",
     "loader.js": "^4.7.0",
     "path": "^0.12.7",

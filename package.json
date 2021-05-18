@@ -20,7 +20,7 @@
     "fetch-markdown": "rm -rf markdown && wget https://github.com/TracerBench/tracerbench/archive/master.zip && unzip -qq -j master.zip 'tracerbench-master/packages/cli/markdown/*' -d markdown && rm -rf master.zip && git add markdown"
   },
   "devDependencies": {
-    "@ember/optional-features": "^1.3.0",
+    "@ember/optional-features": "^2.0.0",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-ajax": "^5.0.0",

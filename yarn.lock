@@ -1413,10 +1413,10 @@
   dependencies:
     chrome-launcher "^0.13.2"
 
-"@tracerbench/har@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@tracerbench/har/-/har-6.0.0.tgz#762b7e7f2c4743f53d6eb9ca8bf1ccff369adf30"
-  integrity sha512-VqbZ0D6Sts5B9A0WsMXOS14bLiz0RRX3J24XgsgXiqkM8/Liku/+yWxg/1amqfrSH5saDltli/6BMcQ7taiEfA==
+"@tracerbench/har@^6.0.0", "@tracerbench/har@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@tracerbench/har/-/har-6.1.0.tgz#bb5df4a77cc32041576c576c34c402c2d86b8b7a"
+  integrity sha512-UMyWPjXBWsVMVacxZ3CK0amNVCkmGMUuCWGEk/3NkfPyBE+vk717m2fwHSH5zv/qtqJU2MnO5n0l7LkSDdjqkw==
 
 "@tracerbench/message-transport@^2.0.0":
   version "2.0.0"
@@ -7237,12 +7237,12 @@ handlebars@^4.0.13, handlebars@^4.0.4, handlebars@^4.3.1, handlebars@^4.4.2, han
   optionalDependencies:
     uglify-js "^3.1.4"
 
-har-remix@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/har-remix/-/har-remix-6.0.0.tgz#118b909ca70b87ac18e8e50d1abaeb128e95f306"
-  integrity sha512-j1GIEjZYOT3+Z1DpuSGWpQTJiIs8Rnutn/qjUHovtkjKxyHaHZ27bL+hnHW5r/IrormFy7BcmepglrDVnFpUcA==
+har-remix@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/har-remix/-/har-remix-6.1.0.tgz#dce339a7b4c84b31a0664d73e09e4708d292a636"
+  integrity sha512-2aF+v5WkmTFQOug3RSkieqNo3UY5HOybz/XrzC/gN/g6wK6qjlVGH0zgJ1vkEfa0PAwjAgxhuBsjjuy2qxAxpA==
   dependencies:
-    "@tracerbench/har" "^6.0.0"
+    "@tracerbench/har" "^6.1.0"
     mime-types "^2.1.30"
 
 har-schema@^2.0.0:
